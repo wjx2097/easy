@@ -25,7 +25,7 @@ SECRET_KEY = 'iif1^%!g@^eo%@m!7ei7nb!*qkf!$e^(-+=x!t-9g4=iqqihx4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'guanli'
 ]
 
 MIDDLEWARE = [
@@ -102,7 +103,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
-
+'''
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -112,6 +113,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+'''
+
+LANGUAGE_CODE='zh-Hans'
+
+TIME_ZONE='Asia/Shanghai'
+
+USE_I18N = True
+USE_L10N = False      # 注意是False 配合下边时间格式
+USE_TZ = False     # 如果只是内部使用的系统，这行建议为false，不然会有时区问题
+DATETIME_FORMAT = 'Y-m-d H:i:s'       # suit在admin里设置时间的一个小bug。需要把时间格式指定一下
+DATE_FORMAT = 'Y-m-d'
 
 
 # Static files (CSS, JavaScript, Images)
